@@ -4,7 +4,7 @@ import com.joaofilippe.authorizationmicroservice.app.domain.entities.User;
 import com.joaofilippe.authorizationmicroservice.app.domain.repositories.IUseRepository;
 
 public class CreateUseCase extends UserUseCase {
-    protected CreateUseCase(IUseRepository userRepository) {
+    public CreateUseCase(IUseRepository userRepository) {
         super(userRepository);
     }
 
