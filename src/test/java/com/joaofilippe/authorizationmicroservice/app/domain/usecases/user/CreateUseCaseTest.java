@@ -2,6 +2,7 @@ package com.joaofilippe.authorizationmicroservice.app.domain.usecases.user;
 
 import com.joaofilippe.authorizationmicroservice.app.domain.entities.User;
 import com.joaofilippe.authorizationmicroservice.app.domain.repositories.IUseRepository;
+import com.joaofilippe.authorizationmicroservice.app.utils.PasswordUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,11 +17,12 @@ import static org.mockito.Mockito.verify;
 public class CreateUseCaseTest {
     private IUseRepository userRepository;
     private CreateUseCase createUseCase;
+    final PasswordUtils passwordUtils = new PasswordUtils();
 
     @BeforeEach
     void setUp() {
         userRepository = Mockito.mock(IUseRepository.class);
-        createUseCase = new CreateUseCase(userRepository);
+        createUseCase = new CreateUseCase(userRepository, passwordUtils);
     }
 
     @Test

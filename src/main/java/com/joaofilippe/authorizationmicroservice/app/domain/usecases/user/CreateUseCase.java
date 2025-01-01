@@ -2,12 +2,14 @@ package com.joaofilippe.authorizationmicroservice.app.domain.usecases.user;
 
 import com.joaofilippe.authorizationmicroservice.app.domain.entities.User;
 import com.joaofilippe.authorizationmicroservice.app.domain.repositories.IUseRepository;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import com.joaofilippe.authorizationmicroservice.app.utils.PasswordUtils;
 
 public class CreateUseCase extends UserUseCase {
-    public CreateUseCase(IUseRepository userRepository) {
+    PasswordUtils passwordUtils;
+
+    public CreateUseCase(IUseRepository userRepository, PasswordUtils passwordUtils) {
         super(userRepository);
+        this.passwordUtils = passwordUtils;
     }
 
     public User execute(User user) {
@@ -19,16 +21,12 @@ public class CreateUseCase extends UserUseCase {
             throw new IllegalArgumentException("Password cannot be null or empty");
         }
 
-        User createdUser = user.setPassword(hashPassword(user.getPassword()));
+        String hashedPassword = this.passwordUtils.hashPassword(user.getPassword());
+
+        User createdUser = user.setPassword(hashedPassword);
 
         super.userRepository.save(createdUser);
 
         return createdUser;
-    }
-
-
-    private String hashPassword(String password) {
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        return passwordEncoder.encode(password);
     }
 }
