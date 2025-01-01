@@ -1,15 +1,12 @@
 package com.joaofilippe.authorizationmicroservice.app.domain.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+
+import lombok.*;
 
 import java.util.UUID;
 
-@Data
+@Getter
 @AllArgsConstructor
-@NoArgsConstructor
 public class User {
     private UUID id;
     private String username;
@@ -21,5 +18,17 @@ public class User {
         this.username = username;
         this.password = password;
         this.email = email;
+    }
+
+    public User copyWith(String username, String password, String email) {
+        return new User(
+                username != null ? username : this.username,
+                password != null ? password : this.password,
+                email != null ? email : this.email
+        );
+    }
+
+    public User setPassword(String password) {
+        return copyWith(null, password, null);
     }
 }
