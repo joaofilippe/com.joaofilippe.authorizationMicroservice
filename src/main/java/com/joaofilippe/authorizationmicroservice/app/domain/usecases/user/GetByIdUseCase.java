@@ -6,7 +6,7 @@ import com.joaofilippe.authorizationmicroservice.app.utils.EmailValidator;
 import java.util.UUID;
 
 public class GetByIdUseCase extends UserUseCase {
-    EmailValidator emailValidator;
+    final EmailValidator emailValidator;
 
     public GetByIdUseCase(
             IUseRepository userRepository,

@@ -11,7 +11,6 @@ import org.mockito.Mockito;
 
 import java.util.Objects;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 
 public class CreateUseCaseTest {

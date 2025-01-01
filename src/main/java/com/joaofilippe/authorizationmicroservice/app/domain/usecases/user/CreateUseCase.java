@@ -5,7 +5,7 @@ import com.joaofilippe.authorizationmicroservice.app.domain.repositories.IUseRep
 import com.joaofilippe.authorizationmicroservice.app.utils.PasswordUtils;
 
 public class CreateUseCase extends UserUseCase {
-    PasswordUtils passwordUtils;
+    final PasswordUtils passwordUtils;
 
     public CreateUseCase(IUseRepository userRepository, PasswordUtils passwordUtils) {
         super(userRepository);

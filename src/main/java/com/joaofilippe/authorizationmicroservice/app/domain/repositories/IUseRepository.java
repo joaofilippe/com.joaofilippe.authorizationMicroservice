@@ -5,6 +5,6 @@ import com.joaofilippe.authorizationmicroservice.app.domain.entities.User;
 import java.util.UUID;
 
 public interface IUseRepository {
-   public User save(User user);
-    public User getById(UUID id);
+   void save(User user);
+    void getById(UUID id);
 }
