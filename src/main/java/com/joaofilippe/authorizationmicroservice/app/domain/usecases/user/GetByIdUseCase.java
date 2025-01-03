@@ -2,15 +2,14 @@ package com.joaofilippe.authorizationmicroservice.app.domain.usecases.user;
 
 import com.joaofilippe.authorizationmicroservice.app.domain.entities.User;
 import com.joaofilippe.authorizationmicroservice.app.domain.failures.UseCaseError;
-import com.joaofilippe.authorizationmicroservice.app.domain.repositories.IUseRepository;
-import com.joaofilippe.authorizationmicroservice.app.utils.EmailValidator;
+import com.joaofilippe.authorizationmicroservice.app.domain.repositories.IUserRepository;
 import com.panfutov.result.Result;
 
 import java.util.UUID;
 
 public class GetByIdUseCase extends UserUseCase {
     public GetByIdUseCase(
-            IUseRepository userRepository
+            IUserRepository userRepository
     ) {
         super(userRepository);
     }

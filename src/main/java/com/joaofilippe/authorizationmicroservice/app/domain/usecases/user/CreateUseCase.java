@@ -1,13 +1,13 @@
 package com.joaofilippe.authorizationmicroservice.app.domain.usecases.user;
 
 import com.joaofilippe.authorizationmicroservice.app.domain.entities.User;
-import com.joaofilippe.authorizationmicroservice.app.domain.repositories.IUseRepository;
+import com.joaofilippe.authorizationmicroservice.app.domain.repositories.IUserRepository;
 import com.joaofilippe.authorizationmicroservice.app.utils.PasswordUtils;
 
 public class CreateUseCase extends UserUseCase {
     final PasswordUtils passwordUtils;
 
-    public CreateUseCase(IUseRepository userRepository, PasswordUtils passwordUtils) {
+    public CreateUseCase(IUserRepository userRepository, PasswordUtils passwordUtils) {
         super(userRepository);
         this.passwordUtils = passwordUtils;
     }
