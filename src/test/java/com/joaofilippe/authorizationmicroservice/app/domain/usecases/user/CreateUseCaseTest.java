@@ -63,10 +63,14 @@ public class CreateUseCaseTest {
     @Test
     @DisplayName("Should throw IllegalArgumentException when password is null or empty")
     public void execute_ShouldThrowException_WhenPasswordIsNullOrEmpty() {
-        User userWithNullPassword = new User("username", null, "email");
         User userWithEmptyPassword = new User("username", "", "email");
 
-        assertThrows(IllegalArgumentException.class, () -> createUseCase.execute(userWithNullPassword));
         assertThrows(IllegalArgumentException.class, () -> createUseCase.execute(userWithEmptyPassword));
+    }
+
+    @Test
+    @DisplayName("Should throw NullPointerException when password is null")
+    public void execute_ShouldThrowException_WhenPasswordIsNull() {
+        assertThrows(NullPointerException.class, () -> new User("username", null, "email"));
     }
 }
