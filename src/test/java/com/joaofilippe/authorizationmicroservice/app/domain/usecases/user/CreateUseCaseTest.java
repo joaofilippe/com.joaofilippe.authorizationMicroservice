@@ -11,6 +11,7 @@ import org.mockito.Mockito;
 
 import java.util.Objects;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 
 public class CreateUseCaseTest {
@@ -51,5 +52,21 @@ public class CreateUseCaseTest {
 
         assert createdUser.getPassword() != null;
         assert !Objects.equals(user.getPassword(), createdUser.getPassword());
+    }
+
+    @Test
+    @DisplayName("Should throw IllegalArgumentException when user is null")
+    public void execute_ShouldThrowException_WhenUserIsNull() {
+        assertThrows(IllegalArgumentException.class, () -> createUseCase.execute(null));
+    }
+
+    @Test
+    @DisplayName("Should throw IllegalArgumentException when password is null or empty")
+    public void execute_ShouldThrowException_WhenPasswordIsNullOrEmpty() {
+        User userWithNullPassword = new User("username", null, "email");
+        User userWithEmptyPassword = new User("username", "", "email");
+
+        assertThrows(IllegalArgumentException.class, () -> createUseCase.execute(userWithNullPassword));
+        assertThrows(IllegalArgumentException.class, () -> createUseCase.execute(userWithEmptyPassword));
     }
 }
