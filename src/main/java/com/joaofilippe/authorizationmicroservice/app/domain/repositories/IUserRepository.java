@@ -6,6 +6,6 @@ import java.util.UUID;
 
 public interface IUserRepository {
     void save(User user);
-
     User getById(UUID id);
+    User getByEmail(String email);
 }

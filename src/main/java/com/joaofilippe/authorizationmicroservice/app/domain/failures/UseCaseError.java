@@ -23,6 +23,10 @@ public class UseCaseError implements GenericError {
         return new UseCaseError("User not found");
     }
 
+    static public UseCaseError invalidCredentials() {
+        return new UseCaseError("Email or password incorrect");
+    }
+
     @Override
     public String getMessage() {
         return message;
