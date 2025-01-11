@@ -1,4 +1,4 @@
-package com.joaofilippe.authorizationmicroservice.app.domain.repositories;
+package com.joaofilippe.authorizationmicroservice.app.domain.irepositories;
 
 import com.joaofilippe.authorizationmicroservice.app.domain.entities.User;
 

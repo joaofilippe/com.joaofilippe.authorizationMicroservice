@@ -1,12 +1,12 @@
 package com.joaofilippe.authorizationmicroservice.app.domain.usecases.user;
 
-import com.joaofilippe.authorizationmicroservice.app.domain.repositories.IUserRepository;
+import com.joaofilippe.authorizationmicroservice.app.domain.irepositories.IUserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class GetByIdUseCaseTest {
     private IUserRepository userRepository;

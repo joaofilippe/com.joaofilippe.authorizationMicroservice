@@ -1,7 +1,7 @@
 package com.joaofilippe.authorizationmicroservice.app.domain.usecases.user;
 
 import com.joaofilippe.authorizationmicroservice.app.domain.entities.User;
-import com.joaofilippe.authorizationmicroservice.app.domain.repositories.IUserRepository;
+import com.joaofilippe.authorizationmicroservice.app.domain.irepositories.IUserRepository;
 import com.joaofilippe.authorizationmicroservice.app.utils.PasswordUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
