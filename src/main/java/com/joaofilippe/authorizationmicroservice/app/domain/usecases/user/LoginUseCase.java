@@ -18,9 +18,9 @@ public class LoginUseCase extends UserUseCase {
         this.passwordUtils = passwordUtils;
     }
 
-    public Result<String> execute(@NonNull String email, @NonNull String password){
+    public Result<String> execute(@NonNull String email, @NonNull String password) {
         User user = userRepository.getByEmail(email);
-        if(user == null || !user.getPassword().equals(password)){
+        if (user == null || !user.getPassword().equals(password)) {
             return Result.failure(UseCaseError.invalidCredentials());
         }
 
@@ -28,6 +28,6 @@ public class LoginUseCase extends UserUseCase {
             return Result.failure(UseCaseError.invalidCredentials());
         }
 
-        return Result.success(tokenUtils.generateToken());
+        return tokenUtils.generateToken(user);
     }
 }

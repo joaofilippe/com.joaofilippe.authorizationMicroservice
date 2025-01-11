@@ -3,6 +3,7 @@ package com.joaofilippe.authorizationmicroservice.app.domain.entities;
 
 import lombok.*;
 
+import java.util.Map;
 import java.util.UUID;
 
 @Getter
@@ -12,6 +13,15 @@ public class User {
     private String username;
     private String password;
     private String email;
+
+    public static User fromMap(Map<String, Object> map) {
+        UUID id = UUID.fromString((String) map.get("id"));
+        String username = (String) map.get("username");
+        String password = (String) map.get("password");
+        String email = (String) map.get("email");
+
+        return new User(id, username, password, email);
+    }
 
     public User(@NonNull String username, @NonNull String password, @NonNull String email) {
         this.id = UUID.randomUUID();
