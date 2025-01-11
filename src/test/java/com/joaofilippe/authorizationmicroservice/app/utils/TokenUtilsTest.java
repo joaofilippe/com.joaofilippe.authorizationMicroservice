@@ -31,7 +31,7 @@ class TokenUtilsTest {
 
     @Test
     @DisplayName("Should parse a token")
-    void parseToken() {
+    void parseToken_ShouldParseAToken() {
         User object = new User("username_test", "password_test", "email_test");
 
         Result tokenResult = tokenUtils.generateToken(object);
