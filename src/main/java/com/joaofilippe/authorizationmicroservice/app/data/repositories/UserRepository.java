@@ -1,5 +1,6 @@
 package com.joaofilippe.authorizationmicroservice.app.data.repositories;
 
+import com.joaofilippe.authorizationmicroservice.app.data.entities.UserDbEntity;
 import com.joaofilippe.authorizationmicroservice.app.data.mappers.UserMapper;
 import com.joaofilippe.authorizationmicroservice.app.domain.entities.User;
 import com.joaofilippe.authorizationmicroservice.app.domain.irepositories.IUserRepository;
@@ -22,11 +23,13 @@ public class UserRepository implements IUserRepository {
 
     @Override
     public User getById(UUID id) {
-        return null;
+        UserDbEntity userDB = userDatabase.findById(id).orElse(null);
+        return userDB != null ? UserMapper.fromDbEntity(userDB) : null;
     }
 
     @Override
     public User getByEmail(String email) {
-        return null;
+        UserDbEntity userDB = userDatabase.findByEmail(email);
+        return userDB != null ? UserMapper.fromDbEntity(userDB) : null;
     }
 }
